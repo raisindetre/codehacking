@@ -3,11 +3,16 @@
 @section('content')
 <h1>Create a User</h1>
 
-{!! Form::open(['method' => 'POST', 'class' => 'form-horizontal', 'action'=>'AdminUsersController@store']) !!}
+
+
+
+{!! Form::open(['method' => 'POST', 'class' => 'form-horizontal', 'action'=>'AdminUsersController@store','files'=>true]) !!}
+
+	@include('includes.errors')
 	
 	<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
 	    {!! Form::label('name', 'Name') !!}
-	    {!! Form::text('name', null, ['class' => 'form-control', 'required' => 'required']) !!}
+	    {!! Form::text('name', null, ['class' => 'form-control']) !!}
 	    <small class="text-danger">{{ $errors->first('name') }}</small>
 	</div>
 
@@ -29,6 +34,14 @@
 	    <small class="text-danger">{{ $errors->first('role') }}</small>
 	</div>
 
+
+	<div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
+	    {!! Form::label('file', 'Upload avatar') !!}
+	    {!! Form::file('file') !!}
+	    <p class="help-block">Upload an image in JPG, PNG or GIF format - maximum of 500px in width or height.</p>
+	    <small class="text-danger">{{ $errors->first('file') }}</small>
+	</div>
+
 	<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 	    {!! Form::label('password', 'Password') !!}
 	    {!! Form::password('password', ['class' => 'form-control', 'required' => 'required']) !!}
@@ -42,21 +55,6 @@
     </div>
 
 {!! Form::close() !!}
-
-
-@if(count($errors)>0)
-	
-<div class="alert">
-	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-	<strong>Errors found!</strong> 
-	<ul>
-		@foreach($errors->all() as $error)
-			<li>{{$error}}</li>
-		@endforeach
-	</ul>
-</div>
-
-@endif 
 
 
 @stop
