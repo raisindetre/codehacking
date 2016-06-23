@@ -8,6 +8,7 @@
 	<thead>
 		<tr>
 			<th>ID</th>
+			<th>Photo</th>
 			<th>Name</th>
 			<th>Email</th>
 			<th>Role</th>
@@ -21,6 +22,7 @@
 		@foreach($users as $user)
 		<tr>
 			<td>{{$user->id}}</td>
+			<td><img width="100" height="100" src="{{isset($user->photo)? $user->photo->file : 'N/A'}}" alt="Image of ".$user_name></td>
 			<td>{{$user->name}}</td>
 			<td>{{$user->email}}</td>
 			<td>{{isset($user->role->name)? $user->role->name : 'Role not set'}}</td>
