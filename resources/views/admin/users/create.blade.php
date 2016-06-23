@@ -36,8 +36,8 @@
 
 
 	<div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
-	    {!! Form::label('file', 'Upload avatar') !!}
-	    {!! Form::file('file') !!}
+	    {!! Form::label('photo_id', 'Upload avatar') !!}
+	    {!! Form::file('photo_id') !!}
 	    <p class="help-block">Upload an image in JPG, PNG or GIF format - maximum of 500px in width or height.</p>
 	    <small class="text-danger">{{ $errors->first('file') }}</small>
 	</div>
