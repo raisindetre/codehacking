@@ -200,16 +200,15 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-        <div id="page-wrapper"></div>
+        <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header"></h1>
                     @yield('content')
                 </div>
             </div>
         </div>
-
+    </div>
     </div>
     <!-- /#wrapper -->
 
