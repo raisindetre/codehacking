@@ -67,6 +67,14 @@
 
 	{!! Form::close() !!}
 
+	{!! Form::open(['method' => 'DELETE', 'action' => ['AdminUsersController@destroy',$user->id], 'class' => 'form-horizontal']) !!}
+	
+	    <div class="btn-group pull-left">
+	        {!! Form::submit("Delete", ['class' => 'btn btn-danger']) !!}
+	    </div>
+	
+	{!! Form::close() !!}
+
 	</div>
 
 @stop

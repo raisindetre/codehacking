@@ -50,13 +50,16 @@ class AdminUsersController extends Controller
         if($file = $request->file('photo_id')){
             $name = time() . '_'. $file->getClientOriginalName();
             $file->move('images',$name);
+
+            $photo = Photo::create(['file'=>$name]);
+            $input['photo_id'] = $photo->id;
+
         }
 
-        $photo = Photo::create(['file'=>$name]);
-        $input['photo_id'] = $photo->id;
 
         // Encrypt password
-        $input['password'] = bcrypt($request->password);
+        // Moved this logic to a Setter for the User class
+        //$input['password'] = bcrypt($request->password);
 
         User::create($input);
         return redirect(route('admin.users.index'));
@@ -109,7 +112,8 @@ class AdminUsersController extends Controller
         }
 
         //$user->photo->update(['name'=>$name]);
-        $input['password'] = bcrypt($input['password']);
+        // Moved this logic to a Setter for the User class
+        //$input['password'] = bcrypt($input['password']);
 
         $user->update($input);
 
@@ -124,6 +128,8 @@ class AdminUsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::findOrFail($id)->delete();
+
+        return redirect('admin/users');
     }
 }
