@@ -95,6 +95,18 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Posts<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{route('admin.posts.index')}}">All posts</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('admin.posts.create')}}">Create Post</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>                        
+                        <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
