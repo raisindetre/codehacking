@@ -18,6 +18,14 @@
 		</tr>
 	</thead>
 	<tbody>
+
+		@if(Session::has('deleted_user'))
+			<div class="alert alert-success">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				<strong>Success</strong> {{session('deleted_user')}}
+			</div>
+		@endif
+
 		@if($users)
 		@foreach($users as $user)
 		<tr>

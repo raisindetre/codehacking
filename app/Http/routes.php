@@ -27,7 +27,7 @@ Route::get('/admin', function(){
 });
 
 Route::group(['middleware' => 'admin'], function(){
-	
+	//print_r( get_declared_classes() );
 	Route::resource('admin/users', 'AdminUsersController');
 });
 
