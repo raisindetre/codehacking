@@ -24,9 +24,11 @@
 		<tr>
 			<td>{{$post->id}}</td>
 			<td>{{isset($post->user_id)? $post->user->name : ''}}</td>			
-			<td>{{isset($post->category_id)? $post->category_id : ''}}</td>						
-			<td>{{isset($post->photo_id)? $post->photo_id : ''}}</td>						
-			<td>{{$post->title}}</td>
+			<td>{{isset($post->category_id)? $post->category->name : ''}}</td>						
+			<td><img src="{{isset($post->photo)? $post->photo->file : "http://placehold.it/100x100"}}" class="img-responsive img-rounded" alt="Image" width="100" height="100">
+			 </td>	
+			
+			<td><a href="{{route('admin.posts.edit',$post->id)}}">{{$post->title}}</a></td>
 			<td>{{$post->created_at->diffForHumans()}}</td>
 			<td>{{$post->updated_at->diffForHumans()}}</td>
 		</tr>

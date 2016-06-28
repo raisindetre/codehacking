@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\Post;
 use App\Photo;
+use App\Category;
 
 class AdminPostsController extends Controller
 {
@@ -31,7 +32,9 @@ class AdminPostsController extends Controller
      */
     public function create()
     {
-                return view('admin.posts.create');
+        $categories = Category::lists('name','id')->all();
+        
+        return view('admin.posts.create',compact('categories'));
     }
 
     /**
@@ -54,8 +57,13 @@ class AdminPostsController extends Controller
             $input['photo_id'] = $photo->id;
         }
 
+        /*
         $input['user_id'] = $user->id;
         Post::create($input);
+
+        // Or better...
+        */
+        $user->posts()->create($input);
         return redirect(route('admin.posts.index'));
     }
 

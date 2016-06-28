@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
+use App\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -21,8 +24,7 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/admin', function(){
-
+Route::get('/admin', function(){	
 	return view('admin.index');
 });
 
