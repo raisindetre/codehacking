@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Post extends Model
 {
@@ -13,4 +14,16 @@ class Post extends Model
     	'title',    	
     	'body',      	
     ];
+
+    public function user(){
+    	return $this->belongsTo('App\User');
+    }
+
+    public function photo(){
+    	return $this->hasOne('App\Photo');
+    }
+
+    public function category(){
+    	return $this->hasOne('App\Category');
+    }    
 }

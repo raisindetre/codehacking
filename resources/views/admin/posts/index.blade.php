@@ -8,7 +8,7 @@
 	<thead>
 		<tr>
 			<th>ID</th>
-			<th>User</th>			
+			<th>Author</th>			
 			<th>Category</th>						
 			<th>Photo</th>									
 			<th>Title</th>
@@ -23,7 +23,7 @@
 		@foreach($posts as $post)
 		<tr>
 			<td>{{$post->id}}</td>
-			<td>{{isset($post->user_id)? $post->user_id : ''}}</td>			
+			<td>{{isset($post->user_id)? $post->user->name : ''}}</td>			
 			<td>{{isset($post->category_id)? $post->category_id : ''}}</td>						
 			<td>{{isset($post->photo_id)? $post->photo_id : ''}}</td>						
 			<td>{{$post->title}}</td>
