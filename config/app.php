@@ -161,6 +161,11 @@ return [
          */
         Collective\Html\HtmlServiceProvider::class,
 
+        /*
+         *  Service to generate stub files to support auto-complete in Sublime editor
+         */
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
     ],
 
     /*

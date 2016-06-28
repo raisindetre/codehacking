@@ -46,6 +46,7 @@ class AdminPostsController extends Controller
         $user = Auth::user();
         $input = $request->all();
 
+
         if($file = $request->file('photo_id')){
             $name = time() . $file->getClientOriginalName();
             $file->move('images',$name);
